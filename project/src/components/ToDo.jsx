@@ -1,5 +1,6 @@
 import React from 'react';
 import {Trash2,FilePenLine,CalendarFold  } from 'lucide-react';
+import EditTask from './EditTask';
 
 
 const ToDo = ({task}) => {
@@ -25,7 +26,9 @@ const ToDo = ({task}) => {
 
 
         <div className=' flex gap-32 mt-4'>
-            <button className='flex bg-slate-500 px-4 rounded-xl font-bold'><FilePenLine />Edit </button>
+
+            <EditTask/>
+           
             <button className='flex bg-red-600 px-4 rounded-xl font-bold'><Trash2 />Delete</button>
         </div>
 

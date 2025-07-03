@@ -4,6 +4,7 @@ import AddTask from './components/AddTask';
 import ToDo from './components/ToDo';
 
 
+
 const App = () => {
 
   const [taskList , setTaskList] = useState([])
@@ -19,6 +20,9 @@ const App = () => {
 
 
       <div>
+
+        <h1 className='bg-slate-400  w-1/4 ml-2 flex justify-center font-bold text-2xl'>To Do</h1>
+
         {taskList.map((task,i)=>(
 
           <>
