@@ -74,7 +74,7 @@ console.log(taskList)
 
                         <label className='flex text-green-600' ><Activity />Priority</label>
                         <select name="Priority"  placeholder='enter your title' className='bg-slate-100 w-full py-3  rounded-lg' value={priority} onChange={(e)=>setPriority(e.target.value)}>
-                             <option value="Low">select</option>
+                             <option value=" ">select</option>
                             <option value="Low">Low</option>
                             <option value="Medium">Medium</option>
                             <option value="High">High</option>

@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import {Trash2,FilePenLine,CalendarFold  } from 'lucide-react';
+
 
 const ToDo = ({task}) => {
   return (
@@ -11,9 +13,9 @@ const ToDo = ({task}) => {
               {task.description}
         </p>
 
-        <h1 className='text-lg'>{task.date}</h1>
+        <h1 className='text-sm flex underline'><CalendarFold />{task.date}</h1>
         <h1
-  className={`text-lg font-serif text-white px-3 py-1 rounded 
+  className={`text-base font-mono text-white w-80  rounded  justify-center items-center flex
     ${task.priority === 'High' ? 'bg-red-500' : 
       task.priority === 'Medium' ? 'bg-yellow-500' : 
       task.priority === 'Low' ? 'bg-green-500' : 'bg-gray-300'}`}
@@ -21,7 +23,16 @@ const ToDo = ({task}) => {
   {task.priority}
 </h1>
 
+
+        <div className=' flex gap-32 mt-4'>
+            <button className='flex bg-slate-500 px-4 rounded-xl font-bold'><FilePenLine />Edit </button>
+            <button className='flex bg-red-600 px-4 rounded-xl font-bold'><Trash2 />Delete</button>
         </div>
+
+        </div>
+
+
+        
 
         
       
