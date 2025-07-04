@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Pencil} from 'lucide-react';
 import AddTask from './components/AddTask';
 import ToDo from './components/ToDo';
@@ -7,7 +7,21 @@ import ToDo from './components/ToDo';
 
 const App = () => {
 
-  const [taskList , setTaskList] = useState([])
+  const getInitialTasks = () => {
+  const saved = localStorage.getItem('taskList');
+  return saved ? JSON.parse(saved) : [];
+};
+
+const [taskList, setTaskList] = useState(getInitialTasks);
+
+ 
+
+
+  useEffect(()=>{
+
+    localStorage.setItem("taskList", JSON.stringify(taskList))
+
+  },[taskList])
 
 
   return (
@@ -26,7 +40,7 @@ const App = () => {
         {taskList.map((task,i)=>(
 
           <>
-        <ToDo key={i}  task={task}/>
+        <ToDo key={i}  task={task} index={i} taskList={taskList} setTaskList={setTaskList}/>
           
           </>
           

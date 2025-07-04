@@ -1,9 +1,9 @@
-import React,{useState} from 'react'
+import React,{useState ,useEffect} from 'react'
 import {Trash2,FilePenLine,CalendarFold  } from 'lucide-react';
 import {Pencil ,BookmarkX,BookUser,Menu ,CalendarDays,Activity} from 'lucide-react';
 
 
-const EditTask = () => {
+const EditTask = ({task,index,taskList,setTaskList}) => {
 
         const [editModal , setEditModal] =useState(false)
 
@@ -12,15 +12,36 @@ const EditTask = () => {
         const[date , setDate] =useState("")
         const[priority , setPriority] = useState("")
 
-        const addHandler =(e)=>{
+       
+        const updateHandler =(e)=>{
 
           e.preventDefault();
+
+           let taskIndex =taskList.indexOf(task);
+           taskList.splice(taskIndex ,1)
+
+
+           setTaskList([...taskList, {title,description,date,priority}])
+           setEditModal(false)
+           setTitle("")
+           setDescription("")
+           setDate("")
+           setPriority("")
+
         }
+
+        useEffect(()=>{
+          setTitle(task.title);
+          setDescription(task.description)
+          setDate(task.date)
+          setPriority(task.priority) 
+
+        },[task])
 
 
   return (
     <div>
-         <button className='flex bg-slate-500 px-4 rounded-xl font-bold' onClick={()=>setEditModal(true)}><FilePenLine />Edit </button>
+         <button className='flex bg-slate-500 px-4 rounded-xl font-extralight' onClick={()=>setEditModal(true)}><FilePenLine />Edit </button>
 
         {editModal ? 
         <>
@@ -39,7 +60,7 @@ const EditTask = () => {
 
 
                 <div className='p-4 '>
-                    <form  onSubmit={addHandler} >
+                    <form  onSubmit={updateHandler} >
                         <label className='flex text-green-600' > <BookUser />Titel</label> <br />
                         <input type="text" placeholder='enter your title' className='bg-slate-100 w-full py-4 rounded-lg' value={title} onChange={(e)=>setTitle(e.target.value)} /> <br /> <br />
 
@@ -60,7 +81,7 @@ const EditTask = () => {
                             <option value="High">High</option>
                         </select>
 
-                          <button type='submit' className="bg-blue-500 px-6 rounded-xl ml-40">save</button>
+                          <button type='submit' className="bg-blue-500 px-6 rounded-xl ml-40" onClick={updateHandler}>update</button>
                     </form>
 
 
