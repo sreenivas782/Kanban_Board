@@ -7,10 +7,17 @@ import ToDo from './components/ToDo';
 
 const App = () => {
 
-  const getInitialTasks = () => {
-  const saved = localStorage.getItem('taskList');
-  return saved ? JSON.parse(saved) : [];
+const getInitialTasks = () => {
+  try {
+    const saved = localStorage.getItem('taskList');
+    const parsed = saved ? JSON.parse(saved) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (e) {
+    console.error("Failed to parse taskList from localStorage:", e);
+    return [];
+  }
 };
+
 
 const [taskList, setTaskList] = useState(getInitialTasks);
 
