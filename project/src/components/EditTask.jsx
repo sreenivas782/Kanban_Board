@@ -91,7 +91,7 @@ const EditTask = ({task,index,taskList,setTaskList}) => {
                 <div>
 
                 </div>
-               
+        
             </div>
 
             </div>
