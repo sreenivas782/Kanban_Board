@@ -41,7 +41,7 @@ const EditTask = ({task,index,taskList,setTaskList}) => {
 
   return (
     <div>
-         <button className='flex bg-slate-500 px-4 rounded-xl font-extralight' onClick={()=>setEditModal(true)}><FilePenLine />Edit </button>
+         <button className='flex bg-blue-300 px-4 rounded-xl font-extralight' onClick={()=>setEditModal(true)}><FilePenLine />Edit </button>
 
         {editModal ? 
         <>

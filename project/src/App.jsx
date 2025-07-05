@@ -26,16 +26,21 @@ const [taskList, setTaskList] = useState(getInitialTasks);
 
   return (
     <div>
-
+      
+                          {/* Nav elements div */}
       <div className='flex justify-around bg-white shadow-2xl p-4 '>
         <h1 className='text-2xl text-orange-500 font-semibold'> <span className='text-blue-600'>KANBAN</span> BOARD</h1>
        <AddTask  taskList={taskList} setTaskList={setTaskList}/>
       </div>
 
 
-      <div>
+            {/* todo , in progress , done divs */}
 
-        <h1 className='bg-slate-400  w-1/4 ml-2 flex justify-center font-bold text-2xl'>To Do</h1>
+      <div  className=' flex justify-between items-start mt-4'>
+
+        <div>
+
+        <h1 className='bg-black rounded-lg  text-white  flex justify-center font-medium text-2xl px-32 h-auto'>To Do</h1>
 
         {taskList.map((task,i)=>(
 
@@ -47,6 +52,21 @@ const [taskList, setTaskList] = useState(getInitialTasks);
         ))
         }
       </div>
+
+
+      <div>
+        <h1  className='bg-yellow-300 rounded-lg text-white  flex justify-center font-bold text-2xl px-32 h-auto '>In Progress</h1>
+      </div>
+
+
+       <div>
+        <h1 className='bg-green-700 rounded-xl text-white   flex justify-center font-bold text-2xl px-32 h-auto'>Done</h1>
+      </div>
+
+      </div>
+
+
+      
       
 
     </div>

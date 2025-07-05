@@ -16,7 +16,7 @@ const ToDo = ({task,index,taskList,setTaskList}) => {
   return (
     <div>
 
-        <div className='bg-white shadow-xl mt-2 flex flex-col items-start justify-start w-1/4 my-3 py-5 ml-2'>
+        <div className='bg-black bg-opacity-10 shadow-xl mt-2 flex flex-col items-start justify-start  my-3 py-5 ml-2'>
 
         <h1 className='text-xl font-bold'>{task.title}</h1>
         <p className="break-words whitespace-pre-wrap w-full max-h-32 overflow-y-auto">
@@ -38,7 +38,7 @@ const ToDo = ({task,index,taskList,setTaskList}) => {
 
             <EditTask task={task} index={index} taskList={taskList} setTaskList={setTaskList}/>
            
-            <button className='flex bg-red-600 px-4 rounded-xl font-extralight' onClick={deleteHandler}><Trash2 />Delete</button>
+            <button className='flex bg-red-600 px-4  rounded-xl font-extralight' onClick={deleteHandler}><Trash2 />Delete</button>
         </div>
 
         </div>
